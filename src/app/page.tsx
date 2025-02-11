@@ -5,7 +5,7 @@ export default function Home() {
     <>
       <section className="w-full flex flex-col justify-center items-center mt-12 gap-[5.438rem] px-3">
         <header className="max-w-[84.5rem] w-full flex justify-between items-center">
-          <Image src="/logo.svg" alt="logo" width={100} height={100} />
+          <Image src="/logo.svg" alt="logo" width={129} height={40} />
 
           <div className="flex items-center gap-7">
             <nav>
@@ -198,6 +198,35 @@ export default function Home() {
             Assine Agora
           </button>
         </div>
+      </section>
+
+      <section className="w-full flex flex-col justify-center items-center mt-56 px-3 gap-11">
+        <div className="w-full flex flex-col items-center gap-6">
+          <h1 className="font-bold text-6xl text-black text-center">
+            Pronto Para Mudar Sua Vida?
+          </h1>
+          <p className="text-center text-xl max-w-2xl text-gray-500">
+            Faça como milhares de outras pessoas. Assine nosso produto e tenha
+            garantido seus estudos
+          </p>
+        </div>
+
+        <div className="max-w-[26.375rem] w-full flex flex-col items-center gap-4">
+          <button className="w-full h-10 bg-black text-white rounded-md text-sm">
+            Assine Agora
+          </button>
+
+          <span className="text-[0.625rem] text-gray-500">
+            Comece sua assinatura agora mesmo. Cancele quando quiser.
+          </span>
+        </div>
+
+        <footer className="flex flex-col items-center gap-2 mt-16 mb-10">
+          <Image src="/logo.svg" alt="logo" width={129} height={40} />
+          <p className="text-xs font-light text-gray-500">
+            © 2024 LivroSaaS. Todos os direitos reservados.
+          </p>
+        </footer>
       </section>
     </>
   );

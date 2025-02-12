@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -33,7 +34,7 @@ export default function Home() {
               className="w-20 h-10 bg-white border border-gray-300 rounded-md text-black text-sm"
               type="button"
             >
-              Login
+              <Link href="/login">Login</Link>
             </button>
           </div>
         </header>

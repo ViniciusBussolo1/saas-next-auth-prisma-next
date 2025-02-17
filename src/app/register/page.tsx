@@ -1,80 +1,58 @@
-import Image from "next/image";
-import Link from "next/link";
+import Button from "@/components/button/button";
+import FormFooter from "@/components/form-main/form-footer/form-footer";
+import FormInput from "@/components/form-main/form-input/form-input";
+import FormMain from "@/components/form-main/form-main";
+import FormNotification from "@/components/form-main/form-notification/form-notification";
+import FormTitle from "@/components/form-main/form-title/form-title";
+import Form from "@/components/form-main/form/form";
 
 export default function Register() {
   return (
     <main className="w-full flex justify-center items-center h-screen">
-      <div className="max-w-[22rem] w-full flex flex-col items-center ">
-        <Image src="/logo.svg" alt="logo" width={129} height={40} />
-
+      <FormMain>
         <div className="w-full">
-          <div className="mt-11">
-            <h1 className="font-semibold text-xl text-black">Cadastre-se</h1>
-            <p className="text-sm text-gray-500">
-              Faça seu cadastro gratuitamente
-            </p>
-          </div>
+          <FormTitle
+            title="Cadastre-se"
+            description="Faça seu cadastro gratuitamente"
+          />
 
-          <form className="mt-11 w-full space-y-7 ">
-            <div className="space-y-5">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="font-bold text-xs">
-                  Nome
-                </label>
-                <input
-                  type="name"
-                  name="name"
-                  placeholder="Fulano de Tal"
-                  className="text-sm p-1"
-                />
-              </div>
+          <Form>
+            <FormInput
+              name="name"
+              type="name"
+              placeholder="Fulano de Tal"
+              labelName="Nome"
+            />
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="font-bold text-xs">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="eu@exemplo.com.br"
-                  className="text-sm p-1"
-                />
-              </div>
+            <FormInput
+              name="email"
+              type="email"
+              placeholder="eu@exemplo.com.br"
+              labelName="Email"
+            />
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="password" className="font-bold text-xs">
-                  Senha
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="********"
-                  className="text-sm p-1"
-                />
-              </div>
-            </div>
+            <FormInput
+              name="password"
+              type="password"
+              placeholder="********"
+              labelName="Senha"
+            />
 
-            <button className="w-full h-10 bg-black text-white rounded-md text-sm hover:bg-gray-800 transition-colors">
-              Registrar
-            </button>
+            <Button children="Registrar" className="w-full h-10" />
 
-            <p className="font-light text-[0.625rem] text-gray-500 text-center mt-6">
-              Ao continuar, você concorda com nossos Termos de Uso e nossa
-              Política de Privacidade.
-            </p>
-          </form>
+            <FormNotification
+              children="Ao continuar, você concorda com nossos Termos de Uso e nossa
+              Política de Privacidade."
+            />
+          </Form>
         </div>
 
-        <p className="font-light text-[0.625rem] text-gray-500 mt-11">
-          Já possui cadastro?{" "}
-          <Link
-            href={"/login"}
-            className="text-[#5E6063] font-bold hover:text-gray-800"
-          >
-            Faça o Login
-          </Link>
-        </p>
-      </div>
+        <FormFooter
+          children="Não possui cadastro?"
+          href="/login"
+          childrenLink="Faça o Login"
+        />
+      </FormMain>
     </main>
   );
 }

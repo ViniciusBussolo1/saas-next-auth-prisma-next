@@ -1,68 +1,52 @@
-import Image from "next/image";
-import Link from "next/link";
+import Button from "@/components/button/button";
+import FormFooter from "@/components/form-main/form-footer/form-footer";
+import FormInput from "@/components/form-main/form-input/form-input";
+import FormMain from "@/components/form-main/form-main";
+import FormNotification from "@/components/form-main/form-notification/form-notification";
+import FormTitle from "@/components/form-main/form-title/form-title";
+import Form from "@/components/form-main/form/form";
+import Notification from "@/components/notification/notification";
 
 export default function Login() {
   return (
     <main className="w-full flex justify-center items-center h-screen">
-      <div className="max-w-[22rem] w-full flex flex-col items-center ">
-        <Image src="/logo.svg" alt="logo" width={129} height={40} />
-
+      <FormMain>
         <div className="w-full">
-          <div className="mt-11">
-            <h1 className="font-semibold text-xl text-black">Boas Vindas</h1>
-            <p className="text-sm text-gray-500">
-              Faça seu login com email e senha
-            </p>
-          </div>
+          <FormTitle
+            title="Boas Vindas"
+            description="Faça seu login com email e senha"
+          />
 
-          <form className="mt-11 w-full space-y-7 ">
-            <div className="space-y-5">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="font-bold text-xs">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="eu@exemplo.com.br"
-                  className="text-sm p-1"
-                />
-              </div>
+          <Form>
+            <FormInput
+              name="email"
+              type="email"
+              placeholder="eu@exemplo.com.br"
+              labelName="Email"
+            />
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="password" className="font-bold text-xs">
-                  Senha
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="********"
-                  className="text-sm p-1"
-                />
-              </div>
-            </div>
+            <FormInput
+              name="password"
+              type="password"
+              placeholder="********"
+              labelName="Senha"
+            />
 
-            <button className="w-full h-10 bg-black text-white rounded-md text-sm hover:bg-gray-800 transition-colors">
-              Login
-            </button>
+            <Button children="Login" className="w-full h-10" />
 
-            <p className="font-light text-[0.625rem] text-gray-500 text-center mt-6">
-              Ao continuar, você concorda com nossos Termos de Uso e nossa
-              Política de Privacidade.
-            </p>
-          </form>
+            <FormNotification
+              children="Ao continuar, você concorda com nossos Termos 
+              de Uso e nossa Política de Privacidade."
+            />
+          </Form>
         </div>
 
-        <p className="font-light text-[0.625rem] text-gray-500 mt-11">
-          Não possui cadastro?{" "}
-          <Link
-            href={"/register"}
-            className="text-[#5E6063] font-bold hover:text-gray-800"
-          >
-            Registre-se
-          </Link>
-        </p>
-      </div>
+        <FormFooter
+          children="Não possui cadastro?"
+          href="/register"
+          childrenLink="Registre-se"
+        />
+      </FormMain>
     </main>
   );
 }

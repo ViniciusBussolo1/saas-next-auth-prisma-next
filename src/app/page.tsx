@@ -6,13 +6,14 @@ import Header from "@/components/header/header";
 import Button from "@/components/button/button";
 import PlanCard from "@/components/plan-card/plan-card";
 import Notification from "@/components/notification/notification";
+import ItemsHowItWorks from "@/components/item-how-it-works/item-how-it-works";
 
 export default function Home() {
   return (
     <>
       <section className="w-full flex flex-col justify-center items-center mt-12 gap-[5.438rem] px-3">
         <Header>
-          <div className="flex items-center gap-7">
+          <div className="flex items-center gap-7 max-[458px]:hidden">
             <nav>
               <ul className="flex items-center gap-6">
                 <li>
@@ -41,6 +42,14 @@ export default function Home() {
               <Link href="/login">Login</Link>
             </button>
           </div>
+
+          <Image
+            src="/menu-icon.svg"
+            alt="menu"
+            width={25.4}
+            height={25.4}
+            className="min-[459px]:hidden"
+          />
         </Header>
 
         <div className="max-w-[51.688rem] w-full">
@@ -55,9 +64,14 @@ export default function Home() {
               <input
                 type="email"
                 placeholder="Coloque seu email"
-                className="w-72 px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-black focus:outline-none"
+                className="max-[343px]:w-48 max-[425px]:w-[14.688rem] max-[458px]:h-9 w-72 px-4 py-3 rounded-md border border-gray-300 focus:ring-2 
+                focus:ring-black focus:outline-none max-[458px]:text-xs "
               />
-              <Button className="px-6 py-3" children="Assine Agora" />
+              <Button
+                className="min-[459px]:px-6 min-[459px]:py-3 max-[458px]:w-[5.793rem] max-[458px]:h-9 
+                max-[458px]:text-[0.625rem]"
+                children="Assine Agora"
+              />
             </div>
 
             <Notification children="Comece sua assinatura agora mesmo. Cancele quando quiser." />
@@ -67,48 +81,28 @@ export default function Home() {
 
       <section className="w-full flex justify-center items-center mt-44 px-3">
         <div className="max-w-[56.286rem] w-full flex flex-col items-center gap-10 px-3">
-          <h1 className="font-bold text-[2.5rem]">Como funciona?</h1>
+          <h1
+            className="max-[458px]:text-xl max-[657px]:text-3xl
+           max-[768px]:text-5xl text-6xl font-bold "
+          >
+            Como funciona?
+          </h1>
 
-          <div className="flex items-center justify-center gap-14">
+          <div className="flex max-[351px]:flex-col items-center justify-center gap-14">
             <Image
               src="/woman.svg"
               alt="Imagem de uma mulher carregando caixas"
               width={392}
               height={392}
+              className="max-[458px]:w-[8.125rem] max-[458px]:h-[8.125rem] 
+              max-[599px]:w-56 max-[599px]:h-56 max-[768px]:w-80 
+              max-[768px]:h-80"
             />
 
             <div className="flex flex-col gap-9 items-end">
-              <div className="flex  items-center gap-16">
-                <p className="text-2xl text-gray-500">
-                  Acesso a 1 ebook por mês{" "}
-                </p>
-                <Image
-                  src="./vector.svg"
-                  alt="Imagem de um vetor"
-                  width={21.15}
-                  height={15.78}
-                />
-              </div>
-
-              <div className="flex  items-center gap-16">
-                <p className="text-2xl text-gray-500">Curadoria especial </p>
-                <Image
-                  src="./vector.svg"
-                  alt="Imagem de um vetor"
-                  width={21.15}
-                  height={15.78}
-                />
-              </div>
-
-              <div className="flex  items-center gap-16">
-                <p className="text-2xl text-gray-500">Cancele quando quiser </p>
-                <Image
-                  src="./vector.svg"
-                  alt="Imagem de um vetor"
-                  width={21.15}
-                  height={15.78}
-                />
-              </div>
+              <ItemsHowItWorks children="Acesso a 1 ebook por mês" />
+              <ItemsHowItWorks children="Curadoria especial" />
+              <ItemsHowItWorks children="Cancele quando quiser" />
             </div>
           </div>
         </div>
@@ -132,7 +126,10 @@ export default function Home() {
         />
 
         <div className="max-w-[26.375rem] w-full flex flex-col items-center gap-4">
-          <Button className="w-full h-10" children="Assine Agora" />
+          <Button
+            className="max-[458px]:max-w-[280px] w-full h-10"
+            children="Assine Agora"
+          />
 
           <Notification children="Comece sua assinatura agora mesmo. Cancele quando quiser." />
         </div>

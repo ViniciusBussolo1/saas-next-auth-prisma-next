@@ -1,7 +1,7 @@
 "use server";
 
-import { signIn } from "../../../../auth";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
+import { signIn } from "../../../../auth";
 
 export default async function loginForms(_prevState: any, formData: FormData) {
   try {
@@ -19,8 +19,6 @@ export default async function loginForms(_prevState: any, formData: FormData) {
     if (e.type === "CredentialsSignin") {
       return { success: false, message: "Dados de login incorretos." };
     }
-
-    console.log(e);
 
     return { success: false, message: "Ops, algum erro aconteceu!" };
   }

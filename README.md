@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Autenticação com NextAuth, Prisma e Next.js 15
 
-## Getting Started
+Neste mini projeto, você irá implementar a autenticação em um hipotético SaaS de Livros de Programação. Usaremos o NextAuth para gerenciar a autenticação e o Prisma para a interação com o banco de dados, enquanto nosso frameworks será o Next.js 15. O design já está preparado, e o foco será na implementação das funcionalidades sem a necessidade de modificar muito o HTML e o CSS.
 
-First, run the development server:
+## 🔨 Requisitos
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Faça a instalação e o setup do NextAuth v5 (a última versão é importante).**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  - O único provedor que você irá usar neste Mini Projeto é o `Credentials` (login com email e senha).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Crie e gerencie sua base de dados (sqlite, mysql ou postgres) usando o Prisma**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  - Você precisará, pelo menos, de uma tabela de usuários
 
-## Learn More
+    > 👀 **Dicas:**
+    >
+    > - Consulte a documentação do NextAuth para entender como configurar o Prisma em conjunto com NextAuth.
 
-To learn more about Next.js, take a look at the following resources:
+- **Funcionalidade de registrar usuários usando a tela de cadastro**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  - Use, na medida do possível, _server actions_.
+  - Um usuário deverá possuir _nome_, _email_ e _senha_.
+  - A senha deverá ser criptografada antes de ser salva na base de dados.
+  - A tela de cadastro não pode ser acessível a usuários logados (redirecione ao dashboard)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    > 👀 **Dicas:**
+    >
+    > - O NextAuth auxilia apenas no login do usuário - a implementação do cadastro de usuário deverá ser feita por você.
 
-## Deploy on Vercel
+- **Funcionalidade de logar usuários usando a tela de login**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - Use, na medida do possível, _server actions_.
+  - Ao logar, redirecione o usuário para a tela de dashboard.
+  - A tela de login não pode ser acessível a usuários logados (redirecione ao dashboard)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Funcionalidade de deslogar o usuário.**
+
+- **Navegação e renderização condicional**
+  - Na home, quando o usuário estiver logado, o botão da Navbar deverá ser `Dashboard`. Quando o usuário estiver deslogado, o botão deverá ser `Login`.
+  - Um usuário deslogado não poderá acessar a Dashboard.
+  - Um usuário logado não poderá acessar as telas de login e cadastro.
+
+## 🎨 Design Sugerido
+
+O layout está no Figma e já está implementado no projeto. Você não precisará implementá-lo.
+
+### Figma
+
+🔗 [Link do design](https://www.figma.com/community/file/1431066927390390144/mini-projeto-saas-autenticacao-com-nextauth-prisma-e-next-js-15)
+
+## 👉🏽 Sobre esse mini-projeto
+
+### O que você irá praticar:
+
+#### Next.js
+
+- Conhecimentos sobre a configuração de páginas e rotas dinâmicas.
+
+#### NextAuth
+
+- Aprender sobre autenticação em aplicações Next.js.
+- Integração do NextAuth com Prisma e base de dados.
+
+#### Prisma
+
+- Gerenciar banco de dados de forma eficiente e intuitiva.
+- Criação de modelos e migrações com Prisma.
+
+### Pré requisitos
+
+- Conhecimentos em JavaScript, React e NextJs.
